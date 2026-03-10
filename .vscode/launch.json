@@ -1,0 +1,24 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Backend (.NET)",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "Backend: Run API",
+      "program": "${workspaceFolder}/backend/bin/Debug/net10.0/TaskManagementApi.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/backend",
+      "stopAtEntry": false,
+      "console": "integratedTerminal"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Run Full Stack",
+      "configurations": ["Backend (.NET)"],
+      "preLaunchTask": "Frontend: Dev Server",
+      "stopAll": true
+    }
+  ]
+}

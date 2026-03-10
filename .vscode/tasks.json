@@ -1,0 +1,64 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Backend: Restore & Verify",
+      "type": "shell",
+      "command": "cd backend && dotnet restore && dotnet build",
+      "problemMatcher": "$msCompile",
+      "group": "build"
+    },
+    {
+      "label": "Backend: Run API",
+      "type": "shell",
+      "command": "cd backend && dotnet run",
+      "isBackground": true,
+      "problemMatcher": {
+        "pattern": {
+          "regexp": "^.*$",
+          "file": 1,
+          "location": 2,
+          "message": 3
+        },
+        "background": {
+          "activeOnStart": true,
+          "pattern": "Now listening on:",
+          "beginsPattern": "^.*Starting",
+          "endsPattern": "^.*listening"
+        }
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Frontend: Install Dependencies",
+      "type": "shell",
+      "command": "cd frontend && npm install",
+      "problemMatcher": [],
+      "group": "build"
+    },
+    {
+      "label": "Frontend: Dev Server",
+      "type": "shell",
+      "command": "cd frontend && npm run dev",
+      "isBackground": true,
+      "problemMatcher": {
+        "pattern": {
+          "regexp": "^.*$",
+          "file": 1,
+          "location": 2,
+          "message": 3
+        },
+        "background": {
+          "activeOnStart": true,
+          "pattern": "Local:.*http",
+          "beginsPattern": "^.*Vite",
+          "endsPattern": "^.*Local:"
+        }
+      },
+      "group": "build"
+    }
+  ]
+}
