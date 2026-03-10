@@ -1,135 +1,64 @@
-# Task Management Application
+This is a simple Task Management application built with GitHub Copilot. It utilizes .NET 10, React, Entity Framework.
+It consists of 4 pages: Main, Admin Panel, Contact, About. 
 
-A full-stack task management application built with **.NET 10** and **React 18**.
+Features on the main page:
+- adding tasks
+- removing tasking
+- marking tasks as done
+- listing all of tasks
 
-## Project Structure
+Features on the admin panel:
+- Dashboard Overview
+- completion progress
+- tasks summary
 
-```
-copilot-project/
-├── backend/          # ASP.NET Core 10 API
-│   ├── Controllers/  # API endpoints
-│   ├── Models/       # Data models
-│   ├── Data/         # Database context
-│   └── Program.cs    # Application setup
-├── frontend/         # React + Vite application
-│   ├── src/
-│   │   ├── components/   # React components
-│   │   ├── services/     # API client
-│   │   └── App.tsx       # Main app
-│   └── package.json  # Dependencies
-└── README.md
-```
+ 
+The project was created using Visual Studio Code with GitHub Copilot working on a Claude Haiku 4.5 model
 
-## Features
 
-- ✅ Create, read, update, and delete tasks
-- ✅ Mark tasks as complete/incomplete
-- ✅ Set due dates for tasks
-- ✅ Add descriptions to tasks
-- ✅ Responsive, modern UI
-- ✅ Fast API with Swagger documentation
+Prompts used to create a project:
+~ create a simple .net 10 + react application for task management
+	Result: Copilot has successfully created .NET backend API in "backend" that contains:
+		- Program.cs with predefined WebApplication builder and configured services
+		- added EntityFramework package with configured DbContext in InMemory model
+		- configured CORS
+		- TaskController with HTTP methods for CRUD operations
+		- TaskItem class as a model
+		- Swagger
+		
+		Copilot has also created frontend React app in "frontend" that contains:
+		- project structure with main page written in TypeScript in components folder
+		- taskApi service with Dto interfaces
+		- async promises for API calls
+		- effective visual styling
 
-## Prerequisites
+Observations:
+The project at first couldn't start. It needed a few small changed in Program.cs file on backend and package.json on frontend.
+After execution of following commands Copilot was asked to fix a few errors. It managed to repair them successfully.
 
-- **.NET 10 SDK** - Download from [dotnet.microsoft.com](https://dotnet.microsoft.com)
-- **Node.js 18+** - Download from [nodejs.org](https://nodejs.org)
+Insights:
+An AI agent was highly effective in generating a backend + frontend application with basic functionalities.
+The project needed a few manual fixes. The result is impressive with little time consumption.
 
-## Getting Started
 
-### 1. Backend Setup
+After that both projects needed to be build, packages to be installed and started
 
-```bash
-cd backend
-dotnet restore
-dotnet run
-```
+~ Add admin layout
+	Result: Agent successfully added admin page with impressive dashboard
 
-The API will be available at `https://localhost:5001` (or `http://localhost:5000`)
-Swagger documentation: `https://localhost:5001/swagger`
+~ Fix error in App.tsx
+	Result: After creating an admin page an error has occurred. After this command the error was fixed.
 
-### 2. Frontend Setup
+~ Add contact info page
+	Result: Added React Router with configured routes, added contact info page
 
-In a new terminal:
+~ Add about page
+	Result: Added about page with auto generated text
 
-```bash
-cd frontend
-npm install
-npm run dev
-```
 
-The application will be available at `http://localhost:3000`
 
-## API Endpoints
+To run backend use command line and type (in backend folder):
+~ dotnet run
 
-- `GET /api/tasks` - Get all tasks
-- `GET /api/tasks/{id}` - Get a specific task
-- `POST /api/tasks` - Create a new task
-- `PUT /api/tasks/{id}` - Update a task
-- `DELETE /api/tasks/{id}` - Delete a task
-
-### Example Request
-
-```bash
-curl -X POST http://localhost:5000/api/tasks \
-  -H "Content-Type: application/json" \
-  -d '{
-    "title": "Buy groceries",
-    "description": "Milk, eggs, bread",
-    "dueDate": "2026-03-15T18:00:00"
-  }'
-```
-
-## Technologies Used
-
-### Backend
-- ASP.NET Core 10
-- Entity Framework Core
-- In-Memory Database (easily switchable to SQL Server)
-- Swagger/OpenAPI
-
-### Frontend
-- React 18
-- TypeScript
-- Vite (build tool)
-- Axios (HTTP client)
-- CSS3
-
-## Development
-
-### Building the Frontend
-
-```bash
-cd frontend
-npm run build
-```
-
-### Building the Backend
-
-```bash
-cd backend
-dotnet build
-```
-
-### Running Tests
-
-Tests can be added using:
-- Backend: xUnit, NUnit
-- Frontend: Vitest, Jest
-
-## Database
-
-Currently uses **In-Memory Database** for development. To switch to SQL Server:
-
-1. Update `Program.cs` in the backend
-2. Add connection string to `appsettings.json`
-3. Run EF Core migrations
-
-## CORS
-
-The backend is configured to accept requests from:
-- `http://localhost:3000` (React dev server)
-- `http://localhost:5173` (Alternative Vite port)
-
-## License
-
-MIT
+To run frontend use command line and type (in frontend folder):
+~ npm run dev
