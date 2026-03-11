@@ -55,16 +55,20 @@ After that both projects needed to be build, packages to be installed and starte
 
 
 Observations:
-The project at first couldn't start. It needed a few small changed in Program.cs file on backend and package.json on frontend.
-After execution of following commands Copilot was asked to fix a few errors. It managed to repair them successfully.
+
+  The project at first couldn't start. It needed a few small changed in Program.cs file on backend and package.json on frontend.
+  After execution of following commands Copilot was asked to fix a few errors. It managed to repair them successfully.
 
 Insights:
-An AI agent was highly effective in generating a backend + frontend application with basic functionalities.
-The project needed a few manual fixes. The result is impressive with little time consumption.
+
+  An AI agent was highly effective in generating a backend + frontend application with basic functionalities.
+  The project needed a few manual fixes. The result is impressive with little time consumption.
 
 
 To run backend use command line and type (in backend folder):
+
 ~ dotnet run
 
 To run frontend use command line and type (in frontend folder):
+
 ~ npm run dev
